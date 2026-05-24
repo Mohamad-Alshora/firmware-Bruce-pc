@@ -55,8 +55,8 @@ static const uint8_t SCL = GROVE_SCL;
 // TFT_eSPI display
 #define USER_SETUP_LOADED
 #define ST7789_DRIVER
-#define TFT_WIDTH 320
-#define TFT_HEIGHT 240
+#define TFT_WIDTH 240
+#define TFT_HEIGHT 320
 #define CGRAM_OFFSET
 #define TFT_MOSI 19
 #define TFT_SCLK 18
@@ -92,7 +92,7 @@ static const uint8_t SCL = GROVE_SCL;
 // Buttons & Navigation
 #define BTN_ALIAS "\"OK\""
 #define HAS_3_BUTTONS
-#define UP_BTN 0
+#define UP_BTN 17
 #define DW_BTN 35
 #define BTN_ACT LOW
 
