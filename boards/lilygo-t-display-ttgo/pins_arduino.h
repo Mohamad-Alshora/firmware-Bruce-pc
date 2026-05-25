@@ -87,7 +87,6 @@ static const uint8_t SCL = GROVE_SCL;
 
 #define BAD_TX 12
 #define BAD_RX 13
-#define USB_as_HID 1
 
 // Buttons & Navigation
 #define BTN_ALIAS "\"OK\""
