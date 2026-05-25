@@ -23,9 +23,7 @@ void OthersMenu::optionsMenu() {
 
 // New consolidated BadUSB & HID submenu
 #if !defined(LITE_VERSION)
-#if defined(USB_as_HID)
         {"BadUSB & HID", [this]() { badUsbHidMenu(); }},
-#endif
 #endif
 
 #ifndef LITE_VERSION
@@ -46,7 +44,7 @@ void OthersMenu::badUsbHidMenu() {
         {"USB Keyboard", [=]() { ducky_keyboard(hid_usb, false); }},
 #endif
 
-#ifdef USB_as_HID
+#if defined(USB_as_HID)
         {"USB Clicker",  clicker_setup                            },
         {"USB U2F",      u2f_setup                                },
 #endif
