@@ -52,7 +52,7 @@ static const uint8_t MISO = SPI_SCK_PIN;
 static const uint8_t SDA = GROVE_SDA;
 static const uint8_t SCL = GROVE_SCL;
 
-// LovyanGFX display configuration
+// LovyanGFX display configuration for GMT020 240x320 ST7789
 #define USE_LOVYANGFX 1
 #define LOVYAN_PANEL Panel_ST7789
 #define LOVYAN_BUS   Bus_SPI
@@ -69,7 +69,7 @@ static const uint8_t SCL = GROVE_SCL;
 #define TFT_MISO -1
 #define TFT_DC   16
 
-// Panel configuration macros
+// Panel configuration macros for full 240x320 display
 #define TFT_CS        5
 #define TFT_RST       23
 #define TFT_BUSY_PIN  -1
