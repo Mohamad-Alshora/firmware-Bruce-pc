@@ -52,26 +52,40 @@ static const uint8_t MISO = SPI_SCK_PIN;
 static const uint8_t SDA = GROVE_SDA;
 static const uint8_t SCL = GROVE_SCL;
 
-// TFT_eSPI display
-#define USER_SETUP_LOADED
-#define ST7789_DRIVER
-#define TFT_WIDTH 240
-#define TFT_HEIGHT 320
-#define CGRAM_OFFSET
-#define TFT_MOSI 19
-#define TFT_SCLK 18
-#define TFT_CS 5
-#define TFT_DC 16
-#define TFT_RST 23
-#define TFT_BL 4              // Display backlight control pin
-#define TFT_BACKLIGHT_ON HIGH // HIGH or LOW are options
-#define SMOOTH_FONT 1
-#define SPI_FREQUENCY 40000000     // Maximum for ILI9341
-#define SPI_READ_FREQUENCY 6000000 // 6 MHz is the maximum SPI read speed for the ST7789V
+// LovyanGFX display configuration
+#define USE_LOVYANGFX 1
+#define LOVYAN_PANEL Panel_ST7789
+#define LOVYAN_BUS   Bus_SPI
+#define LOVYAN_SPI_BUS 1
 
-// Display Setup#
+#define TFT_SPI_HOST  SPI3_HOST
+#define TFT_SPI_MODE  0
+#define TFT_WRITE_FREQ 40000000
+#define TFT_READ_FREQ  15000000
+#define TFT_SPI_3WIRE  true
+#define TFT_USE_LOCK  true
+#define TFT_SCLK 18
+#define TFT_MOSI 19
+#define TFT_MISO -1
+#define TFT_DC   16
+
+// Panel configuration macros
+#define TFT_CS        5
+#define TFT_RST       23
+#define TFT_BUSY_PIN  -1
+#define TFT_BL        4     // Backlight control pin
+#define TFT_WIDTH     240
+#define TFT_HEIGHT    320
+#define TFT_OFFSET_X  0
+#define TFT_OFFSET_Y  0
+#define TFT_INVERTION 0
+#define TFT_RGB_ORDER 0
+#define TFT_MEM_WIDTH  240
+#define TFT_MEM_HEIGHT 320
+
+// Display Setup
 #define HAS_SCREEN
-#define ROTATION 3
+#define ROTATION 0
 #define MINBRIGHT (uint8_t)1
 
 // Font Sizes#
