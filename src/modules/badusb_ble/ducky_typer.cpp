@@ -6,6 +6,8 @@
 #include "core/utils.h"
 #if defined(USB_as_HID)
 #include "tusb.h"
+#else
+#include "Bad_Usb_Lib/TextBridgeKeyboard.h"
 #endif
 
 #define DEF_DELAY 100
@@ -195,9 +197,11 @@ void ducky_startKb(HIDInterface *&hid, bool ble) {
 
             printStatusBadUSBBLE("USB Host Connected");
 #else
-            mySerial.begin(CH9329_DEFAULT_BAUDRATE, SERIAL_8N1, BAD_RX, BAD_TX);
+            // Initialize serial bridge at 115200 baud (TextBridge protocol)
+            mySerial.begin(115200, SERIAL_8N1, BAD_RX, BAD_TX);
             delay(100);
-            hid = new CH9329_Keyboard_();
+            hid = new TextBridgeKeyboard();
+            hid->begin(mySerial);
 #endif
         }
     }
@@ -216,7 +220,8 @@ void ducky_startKb(HIDInterface *&hid, bool ble) {
         hid->begin(keyboardLayouts[bruceConfig.badUSBBLEKeyboardLayout]);
         hid->setDelay(bruceConfig.badUSBBLEKeyDelay);
 #else
-        mySerial.begin(CH9329_DEFAULT_BAUDRATE, SERIAL_8N1, BAD_RX, BAD_TX);
+        // Initialize serial bridge at 115200 baud (TextBridge protocol)
+        mySerial.begin(115200, SERIAL_8N1, BAD_RX, BAD_TX);
         delay(100);
         hid->begin(mySerial, keyboardLayouts[bruceConfig.badUSBBLEKeyboardLayout]);
         hid->setDelay(bruceConfig.badUSBBLEKeyDelay);
@@ -272,19 +277,9 @@ void ducky_setup(HIDInterface *&hid, bool ble) {
             first_time = false;
             if (!ble) {
 #if !defined(USB_as_HID)
-                mySerial.write(0x00);
-                while (mySerial.available() <= 0) {
-                    if (mySerial.available() <= 0) {
-                        displayTextLine("CH9329 -> USB");
-                        delay(200);
-                        mySerial.write(0x00);
-                    } else break;
-                    if (check(EscPress)) {
-                        displayError("CH9329 not found"); // Cancel run
-                        delay(500);
-                        goto EXIT;
-                    }
-                }
+                // TextBridge Serial interface ready - no probing needed
+                printStatusBadUSBBLE("TextBridge Ready");
+                delay(500);
 #endif
                 printStatusBadUSBBLE("Preparing USB");
                 delay(2000); // Time to Computer or device recognize the USB HID
@@ -441,11 +436,11 @@ void key_input(FS fs, String bad_script, HIDInterface *_hid) {
                 }
                 // DELAY and DEFAULTDELAY are processed here
                 else if (PriCmd->type == DuckyCommandType_Delay) {
-                    if ((int)PriCmd->key > 0) delay(DEF_DELAY); // Default delay is 10ms
+                    if ((int)PriCmd->key > 0) _hid->sendDelay(DEF_DELAY); // Default delay is 100ms
                     else {
                         int delayTime = Argument.toInt();
-                        if (delayTime > 0) delay(delayTime);
-                        else delay(DEF_DELAY);
+                        if (delayTime > 0) _hid->sendDelay(delayTime);
+                        else _hid->sendDelay(DEF_DELAY);
                     }
                 }
                 // ALTCHAR command is processed here
