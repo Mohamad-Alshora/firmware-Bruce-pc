@@ -11,10 +11,10 @@ Das CH9329-Binär-Protokoll wurde komplett entfernt und durch ein **einfaches, l
 - Fehleranfällig
 
 ### Nachher (TextBridge):
-✅ **Einfache Text-Befehle**  
-✅ **115200 Baud** (10x schneller)  
-✅ **Kein Handshake erforderlich**  
-✅ **Im Terminal lesbar & debugbar**  
+✅ **Einfache Text-Befehle**
+✅ **115200 Baud** (10x schneller)
+✅ **Kein Handshake erforderlich**
+✅ **Im Terminal lesbar & debugbar**
 
 ---
 
@@ -219,7 +219,7 @@ RX: KEY:ENTER
 
 ---
 
-**Status:** ✅ Implementierung abgeschlossen  
-**Verfasser:** GitHub Copilot  
-**Datum:** Mai 2026  
+**Status:** ✅ Implementierung abgeschlossen
+**Verfasser:** GitHub Copilot
+**Datum:** Mai 2026
 **Projekt:** Bruce Firmware - TextBridge Serial Protocol

@@ -43,7 +43,7 @@ if (ble) {
 **WICHTIG:** Sie müssen `USB_as_HID` **NICHT** und **SOLLTEN NICHT** definieren!
 
 - ❌ **NICHT** in `platformio.ini` hinzufügen
-- ❌ **NICHT** in `pins_arduino.h` setzen  
+- ❌ **NICHT** in `pins_arduino.h` setzen
 - ❌ **NICHT** in der Board-INI-Datei definieren
 
 Der Standard-ESP32-WROOM hat keinen nativen USB-HID-Controller. `USB_as_HID` ist nur für S2/S3 Chips und M5Stack-Geräte mit integrierten USB-Controllern.
@@ -168,7 +168,7 @@ Beispiel `BadUSB` Verwendung:
 
 ### Problem: "Serial-Verbindung fehlt" Fehler
 - **Ursache:** Arduino Pro Micro ist nicht angeschlossen oder nicht in bootloader mode
-- **Lösung:** 
+- **Lösung:**
   1. Arduino Pro Micro USB-Kabel überprüfen
   2. RX/TX Verbindungen überprüfen (GPIO 12 ↔ TX, GPIO 13 ↔ RX)
   3. Baud-Rate: 9600 (automatisch eingestellt)
@@ -215,6 +215,6 @@ Beispiel `BadUSB` Verwendung:
 
 ---
 
-**Verfasser:** GitHub Copilot  
-**Datum:** Mai 2026  
+**Verfasser:** GitHub Copilot
+**Datum:** Mai 2026
 **Projekt:** Bruce Firmware für ESP32-WROOM mit externem Arduino Pro Micro

@@ -20,7 +20,7 @@ public:
     virtual bool isConnected() { return false; };
     virtual void setLayout(const uint8_t *layout) {};
     virtual void setDelay(uint32_t ms) {};
-    
+
     // Send delay command (for TextBridge: sends "DLY:[ms]\n", for others: calls delay())
     virtual void sendDelay(uint32_t ms) { delay(ms); };
 };

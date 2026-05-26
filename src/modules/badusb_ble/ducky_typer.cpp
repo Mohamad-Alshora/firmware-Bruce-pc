@@ -7,7 +7,7 @@
 #if defined(USB_as_HID)
 #include "tusb.h"
 #else
-#include "Bad_Usb_Lib/TextBridgeKeyboard.h"
+#include <Bad_Usb_Lib/TextBridgeKeyboard.h>
 #endif
 
 #define DEF_DELAY 100
@@ -481,8 +481,9 @@ void key_input(FS fs, String bad_script, HIDInterface *_hid) {
                     if (ArgCmd != nullptr && PriCmd != nullptr && ArgCmd->type == DuckyCommandType_Cmd &&
                         PriCmd->type == DuckyCommandType_Cmd) {
                         _hid->press(ArgCmd->key);
-                    } else if (PriCmd != nullptr && PriCmd->type == DuckyCommandType_Cmd &&
-                               Argument.length() > 0) {
+                    } else if (
+                        PriCmd != nullptr && PriCmd->type == DuckyCommandType_Cmd && Argument.length() > 0
+                    ) {
                         for (int idx = 0; idx < Argument.length(); idx++) {
                             _hid->press(Argument.charAt(idx));
                         }

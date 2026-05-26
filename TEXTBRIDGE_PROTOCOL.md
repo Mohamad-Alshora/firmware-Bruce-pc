@@ -144,7 +144,7 @@ void setup() {
 void loop() {
     if (Serial.available()) {
         String cmd = Serial.readStringUntil('\n');
-        
+
         if (cmd.startsWith("STR:")) {
             String text = cmd.substring(4);
             Keyboard.print(text);
@@ -263,6 +263,6 @@ void loop() {
 
 ---
 
-**Verfasser:** GitHub Copilot  
-**Datum:** Mai 2026  
+**Verfasser:** GitHub Copilot
+**Datum:** Mai 2026
 **Projekt:** Bruce Firmware - TextBridge Serial Protocol

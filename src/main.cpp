@@ -105,7 +105,7 @@ bool returnToMenu;
 bool isSleeping = false;
 bool isScreenOff = false;
 bool dimmer = false;
-char timeStr[16];
+char timeStr[64];  // Increased from 16 to accommodate 12hr format with AM/PM
 time_t localTime;
 struct tm *timeInfo;
 #if defined(HAS_RTC)

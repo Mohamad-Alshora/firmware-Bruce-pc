@@ -75,7 +75,7 @@ extern SerialDevice *serialDevice;
 extern USBSerial USBserial;
 extern StartupApp startupApp;
 
-extern char timeStr[16];
+extern char timeStr[64];  // Increased from 16 to accommodate 12hr format with AM/PM
 extern SPIClass sdcardSPI;
 extern SPIClass CC_NRF_SPI;
 extern bool clock_set;
