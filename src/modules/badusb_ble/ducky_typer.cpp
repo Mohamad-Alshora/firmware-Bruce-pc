@@ -201,7 +201,7 @@ void ducky_startKb(HIDInterface *&hid, bool ble) {
             mySerial.begin(115200, SERIAL_8N1, BAD_RX, BAD_TX);
             delay(100);
             hid = new TextBridgeKeyboard();
-            hid->begin(mySerial);
+            hid->begin(mySerial, keyboardLayouts[bruceConfig.badUSBBLEKeyboardLayout]);
 #endif
         }
     }
