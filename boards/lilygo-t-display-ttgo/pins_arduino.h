@@ -62,7 +62,7 @@ static const uint8_t SCL = GROVE_SCL;
 #define TFT_CS 5
 #define TFT_DC 16
 #define TFT_RST 23
-#define TFT_BL               // Display backlight control pin war 4
+// #define TFT_BL                // Display backlight control pin war 4
 #define TFT_BACKLIGHT_ON HIGH // HIGH or LOW are options
 #define SMOOTH_FONT 1
 #define SPI_FREQUENCY 40000000
