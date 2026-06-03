@@ -28,8 +28,8 @@
 #define CC1101_MISO_PIN SPI_MISO_PIN
 
 #define USE_NRF24_VIA_SPI
-#define NRF24_CE_PIN 37
-#define NRF24_SS_PIN 38
+#define NRF24_CE_PIN 4 //war37
+#define NRF24_SS_PIN 17 //war 38
 #define NRF24_MOSI_PIN SPI_MOSI_PIN
 #define NRF24_SCK_PIN SPI_SCK_PIN
 #define NRF24_MISO_PIN SPI_MISO_PIN
@@ -62,7 +62,7 @@ static const uint8_t SCL = GROVE_SCL;
 #define TFT_CS 5
 #define TFT_DC 16
 #define TFT_RST 23
-#define TFT_BL 4              // Display backlight control pin
+#define TFT_BL               // Display backlight control pin war 4
 #define TFT_BACKLIGHT_ON HIGH // HIGH or LOW are options
 #define SMOOTH_FONT 1
 #define SPI_FREQUENCY 40000000
@@ -91,7 +91,7 @@ static const uint8_t SCL = GROVE_SCL;
 // Buttons & Navigation
 #define BTN_ALIAS "\"OK\""
 #define HAS_3_BUTTONS
-#define UP_BTN 17
+#define UP_BTN 36 //war 17
 #define DW_BTN 35
 #define BTN_ACT LOW
 
