@@ -28,8 +28,8 @@
 #define CC1101_MISO_PIN SPI_MISO_PIN
 
 #define USE_NRF24_VIA_SPI
-#define NRF24_CE_PIN 37
-#define NRF24_SS_PIN 38
+#define NRF24_CE_PIN 18
+#define NRF24_SS_PIN 19
 #define NRF24_MOSI_PIN SPI_MOSI_PIN
 #define NRF24_SCK_PIN SPI_SCK_PIN
 #define NRF24_MISO_PIN SPI_MISO_PIN
@@ -57,9 +57,9 @@ static const uint8_t SCL = GROVE_SCL;
 #define ST7789_DRIVER
 #define TFT_WIDTH 240
 #define TFT_HEIGHT 320
-#define TFT_MOSI 19
-#define TFT_SCLK 18
-#define TFT_CS 5
+#define TFT_MOSI SPI_MOSI_PIN
+#define TFT_SCLK SPI_SCK_PIN
+#define TFT_CS 5 
 #define TFT_DC 16
 #define TFT_RST 23
 #define TFT_BL 4              // Display backlight control pin
